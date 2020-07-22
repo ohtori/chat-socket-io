@@ -1,5 +1,8 @@
 const users = require('./users')();
 module.exports = function socketApi (socket) {
+  function createDate() {
+    return new Date().toLocaleString("ru", { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' });
+  }
 
   socket.on('userJoined', (data, cb) => {
     if (!data.name || !data.room) {
@@ -21,13 +24,15 @@ module.exports = function socketApi (socket) {
 
     socket.emit('newMessage', {
       from: 'admin', 
-      text: `Добро пожаловать ${data.name}`
+      text: `Добро пожаловать ${data.name}`,
+      time: createDate()
     });
     socket.broadcast
       .to(data.room)
       .emit('newMessage', {
         from: 'admin', 
-        text: `Пользователь ${data.name} зашел.`
+        text: `Пользователь ${data.name} зашел.`,
+        time: createDate()
       })
   });
 
@@ -38,8 +43,8 @@ module.exports = function socketApi (socket) {
 
     const user = users.get(data.id);
     if (user) {
-      socket.to(user.room).emit('newMessage', {from: user.name, text: data.text, id: data.id});
-      socket.emit('newMessage', {from: user.name, text: data.text, id: data.id, isMe: true});
+      socket.to(user.room).emit('newMessage', {from: user.name, text: data.text, id: data.id, time: createDate()});
+      socket.emit('newMessage', {from: user.name, text: data.text, id: data.id, isMe: true, time: createDate()});
     }
     cb()
   });

@@ -24,7 +24,10 @@ function setMessagesList() {
   let messagesToHTML = '';
   messages.map(message => {
     messagesToHTML += `<li ${formingClassList(message)}>
-      <span>${message.from}: </span>
+      <div class="message-header">
+        <span>${message.from}: </span>
+        <span class="message-time">${message.time}</span>
+      </div>
       <p>${message.text}<p></p>
     </li>`;
   });

@@ -60,6 +60,11 @@ ul.messages-list {
   flex-basis: 80%;
 }
 
+.message-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 li.system-message {
   color: #fff;
   border-bottom: 1px solid #fff;
@@ -95,4 +100,9 @@ li.my-message {
 .messages-box .main {
   height: auto;
   overflow-y: scroll;
+}
+
+.message-header .message-time {
+  font-weight: normal;
+  font-size: 13px;
 }
