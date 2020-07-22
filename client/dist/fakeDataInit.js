@@ -1,5 +1,4 @@
 let users = [];
-
 const messages = [];
 
 function setUsersList() {
