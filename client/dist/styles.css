@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+html, body {
+  background: #421da2;
+  color: #fff;
+  height: 100%;
+}
+
+h1 {
+  padding: 2.8rem 0 1.68rem 0;
+  margin: 0;  
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container .messages-box {
+  overflow: hidden;
+  display: flex;
+  max-height: 100%;
+  padding-bottom: 270px;
+  box-sizing: border-box;
+}
+
+.message-form-wrap {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 40px;
+  background: #754cdd;
+  display: block;
+}
+
+textarea.materialize-textarea {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+textarea.materialize-textarea:focus {
+  border-bottom: 1px solid rgb(251, 255, 15);
+}
+
+ul.messages-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.messages-list li {
+  margin-bottom: 15px;
+  padding: 5px 15px;
+  flex-basis: 80%;
+}
+
+li.system-message {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  flex-basis: 100%;
+}
+
+li.user-message {
+  border-radius: 3px;
+  background: #ecf3fc;
+  color: #444;
+  margin-right: auto;
+}
+
+.user-message span {
+  font-weight: bold;
+  font-size: 14px;
+  display: block;
+}
+
+li.my-message {
+  border-radius: 3px;
+  background: #f4f76b;
+  color: #444;
+  margin-left: auto;
+}
+
+.my-message span {
+  font-weight: bold;
+  font-size: 14px;
+  display: block;
+}
+
+.messages-box .main {
+  height: auto;
+  overflow-y: scroll;
+}
